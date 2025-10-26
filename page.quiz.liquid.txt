@@ -1,0 +1,36 @@
+{% layout 'theme' %}
+
+<div class="kc-quiz-container">
+  <div class="kc-quiz-header">
+    <div class="progress-bar">
+      <div class="progress-fill" id="quiz-progress"></div>
+    </div>
+    <div class="progress-text">
+      <span id="current-step">1</span> of <span id="total-steps">10</span>
+    </div>
+  </div>
+
+  <div class="kc-quiz-content" id="quiz-content">
+    <!-- Quiz questions loaded dynamically -->
+  </div>
+
+  <div class="kc-quiz-navigation">
+    <button class="btn-secondary" id="quiz-back" style="display: none;">
+      ← Previous
+    </button>
+    <button class="btn-primary" id="quiz-next" disabled>
+      Next →
+    </button>
+  </div>
+
+  <div class="kc-quiz-results" id="quiz-results" style="display: none;">
+    <!-- Results will display here -->
+  </div>
+</div>
+
+<script src="{{ 'kc-quiz.js' | asset_url }}" defer></script>
+<link rel="stylesheet" href="{{ 'kc-quiz.css' | asset_url }}">
+
+<script>
+  window.kcQuizData = {{ quiz_questions | json }};
+</script>

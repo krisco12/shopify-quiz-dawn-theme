@@ -1,0 +1,41 @@
+{%- style -%}
+  .kc-quiz-section {
+    padding: 60px 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  }
+{%- endstyle -%}
+
+<div class="kc-quiz-section">
+  <div class="container">
+    <div class="kc-quiz-intro">
+      <h2>{{ section.settings.title }}</h2>
+      <p>{{ section.settings.description }}</p>
+      <div class="quiz-features">
+        <div class="feature"><span class="icon">⏱️</span> <span>5-7 minutes</span></div>
+        <div class="feature"><span class="icon">🧠</span><span>Science-based</span></div>
+        <div class="feature"><span class="icon">✨</span><span>Personalized results</span></div>
+      </div>
+      <button class="btn-primary btn-large" id="start-quiz">Start Your Focus Assessment</button>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "KC Theory Quiz",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Quiz Title",
+      "default": "What's Your ADHD Focus Type?"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Quiz Description",
+      "default": "Discover your unique ADHD profile and get personalized strategies that actually work."
+    }
+  ]
+}
+{% endschema %}
