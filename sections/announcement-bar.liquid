@@ -1,0 +1,41 @@
+{% if section.settings.enable_announcement %}
+  <div class="announcement-bar">
+    <p>{{ section.settings.text }}</p>
+    {% if section.settings.link != blank %}
+      <a href="{{ section.settings.link }}">{{ section.settings.link_text }}</a>
+    {% endif %}
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_announcement",
+      "label": "Enable announcement",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Announcement text",
+      "default": "Free shipping on orders over $50"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link text",
+      "default": "Shop now"
+    }
+  ]
+}
+{% endschema %}
