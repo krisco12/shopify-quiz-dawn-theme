@@ -635,4 +635,5 @@ class ADHDQuiz {
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded, initializing quiz...');
     window.adhdQuiz = new ADHDQuiz();
+
 });
