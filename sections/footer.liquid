@@ -1,0 +1,101 @@
+{% comment %}
+  Footer section for KC Focus theme
+{% endcomment %}
+
+<footer class="footer" role="contentinfo">
+  <div class="footer__wrapper">
+    <div class="footer__content">
+      {% if section.settings.show_copyright %}
+        <div class="footer__copyright">
+          <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
+        </div>
+      {% endif %}
+      
+      {% if section.settings.footer_menu != blank %}
+        <nav class="footer__nav" role="navigation">
+          <ul class="footer__menu">
+            {% for link in section.settings.footer_menu.links %}
+              <li class="footer__menu-item">
+                <a href="{{ link.url }}" class="footer__menu-link">{{ link.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      {% endif %}
+      
+      {% if section.settings.footer_text != blank %}
+        <div class="footer__text">
+          {{ section.settings.footer_text }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding: 2rem 1rem;
+    background-color: #f5f5f5;
+    border-top: 1px solid #e5e5e5;
+    margin-top: 2rem;
+  }
+  .footer__wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .footer__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    text-align: center;
+  }
+  .footer__copyright p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #666;
+  }
+  .footer__menu {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+  }
+  .footer__menu-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.875rem;
+  }
+  .footer__text {
+    font-size: 0.875rem;
+    color: #666;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_copyright",
+      "label": "Show copyright",
+      "default": true
+    },
+    {
+      "type": "link_list",
+      "id": "footer_menu",
+      "label": "Footer menu",
+      "default": "footer"
+    },
+    {
+      "type": "richtext",
+      "id": "footer_text",
+      "label": "Footer text"
+    }
+  ]
+}
+{% endschema %}
