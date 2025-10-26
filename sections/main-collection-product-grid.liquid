@@ -1,0 +1,24 @@
+<div class="collection-products">
+  {% paginate collection.products by 24 %}
+    <ul class="product-grid">
+      {% for product in collection.products %}
+        <li>
+          <a href="{{ product.url }}">
+            <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+            <h3>{{ product.title }}</h3>
+            <p>{{ product.price | money }}</p>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    {{ paginate | default_pagination }}
+  {% endpaginate %}
+</div>
+
+{% schema %}
+{
+  "name": "Collection Product Grid",
+  "tag": "section",
+  "class": "section"
+}
+{% endschema %}
