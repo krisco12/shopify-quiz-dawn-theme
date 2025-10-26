@@ -1,0 +1,15 @@
+<div class="product">
+  <h1>{{ product.title }}</h1>
+  <div class="product-price">{{ product.price | money }}</div>
+  {% form 'product', product %}
+    <button type="submit">Add to cart</button>
+  {% endform %}
+</div>
+
+{% schema %}
+{
+  "name": "Product",
+  "tag": "section",
+  "class": "section"
+}
+{% endschema %}
