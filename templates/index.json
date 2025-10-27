@@ -80,6 +80,46 @@
         "padding_bottom": 36
       }
     },
+    "kc_collections_w4pMAe": {
+      "type": "kc-collections",
+      "blocks": {
+        "collection_RNFyb8": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "show_description": true,
+            "show_count": true
+          }
+        },
+        "collection_NQU3wa": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "show_description": true,
+            "show_count": true
+          }
+        },
+        "collection_VgT3XN": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "show_description": true,
+            "show_count": true
+          }
+        }
+      },
+      "block_order": [
+        "collection_RNFyb8",
+        "collection_NQU3wa",
+        "collection_VgT3XN"
+      ],
+      "name": "KC Collections",
+      "settings": {
+        "heading": "Shop by Category",
+        "description": "Explore our curated collections designed for men with ADHD",
+        "show_view_all": true
+      }
+    },
     "footer": {
       "type": "footer",
       "settings": {
@@ -103,6 +143,7 @@
     "main",
     "image_banner",
     "featured_collection",
+    "kc_collections_w4pMAe",
     "footer"
   ]
 }
