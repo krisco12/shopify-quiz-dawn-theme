@@ -1,0 +1,150 @@
+/**
+ * KC Theory Hero Section
+ * Landing page hero with KC Theory branding
+ */
+
+.kc-hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--color-focus-bg, #F7FAFC);
+}
+
+.kc-hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.kc-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.kc-hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: var(--spacing-3xl, 64px) var(--spacing-lg, 24px);
+  text-align: center;
+}
+
+.kc-hero-content .container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.kc-hero-heading {
+  font-size: var(--font-size-4xl, 48px);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--color-white, #FFFFFF);
+  margin-bottom: var(--spacing-lg, 24px);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  line-height: var(--line-height-tight, 1.25);
+}
+
+.kc-hero-subheading {
+  font-size: var(--font-size-xl, 24px);
+  color: var(--color-white, #FFFFFF);
+  margin-bottom: var(--spacing-2xl, 48px);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  line-height: var(--line-height-normal, 1.5);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.kc-hero-buttons {
+  display: flex;
+  gap: var(--spacing-md, 16px);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .kc-hero-section {
+    min-height: 500px;
+  }
+
+  .kc-hero-heading {
+    font-size: var(--font-size-3xl, 36px);
+  }
+
+  .kc-hero-subheading {
+    font-size: var(--font-size-lg, 20px);
+    margin-bottom: var(--spacing-xl, 32px);
+  }
+
+  .kc-hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .kc-hero-buttons .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .kc-hero-section {
+    min-height: 400px;
+  }
+
+  .kc-hero-content {
+    padding: var(--spacing-2xl, 48px) var(--spacing-md, 16px);
+  }
+
+  .kc-hero-heading {
+    font-size: var(--font-size-2xl, 30px);
+  }
+
+  .kc-hero-subheading {
+    font-size: var(--font-size-md, 18px);
+  }
+}
+
+/* Focus mode adjustments */
+html.kc-focus-mode .kc-hero-section {
+  min-height: 300px;
+}
+
+html.kc-focus-mode .kc-hero-background {
+  display: none;
+}
+
+html.kc-focus-mode .kc-hero-section {
+  background-color: var(--color-focus-bg, #F7FAFC);
+}
+
+html.kc-focus-mode .kc-hero-heading,
+html.kc-focus-mode .kc-hero-subheading {
+  color: var(--color-primary-navy, #010B4A);
+  text-shadow: none;
+}
+
+/* Print styles */
+@media print {
+  .kc-hero-section {
+    min-height: auto;
+    page-break-inside: avoid;
+  }
+
+  .kc-hero-background {
+    display: none;
+  }
+
+  .kc-hero-buttons {
+    display: none;
+  }
+}
+

@@ -1,0 +1,122 @@
+{{ 'kc-hero-section.css' | asset_url | stylesheet_tag }}
+
+<div class="kc-hero-section" id="kc-hero-{{ section.id }}">
+  <div class="kc-hero-background">
+    {%- if section.settings.image != blank -%}
+      <img
+        src="{{ section.settings.image | image_url: width: 1920 }}"
+        srcset="{{ section.settings.image | image_url: width: 375 }} 375w,
+                {{ section.settings.image | image_url: width: 750 }} 750w,
+                {{ section.settings.image | image_url: width: 1100 }} 1100w,
+                {{ section.settings.image | image_url: width: 1500 }} 1500w,
+                {{ section.settings.image | image_url: width: 1920 }} 1920w"
+        sizes="100vw"
+        alt="{{ section.settings.image.alt | escape }}"
+        loading="eager"
+        fetchpriority="high"
+        width="{{ section.settings.image.width }}"
+        height="{{ section.settings.image.height }}"
+        class="kc-hero-image"
+      >
+    {%- else -%}
+      <img
+        src="{{ 'kc-hero-background.png' | asset_url }}"
+        alt="The KC Theory - Supporting men with ADHD"
+        loading="eager"
+        fetchpriority="high"
+        class="kc-hero-image"
+      >
+    {%- endif -%}
+  </div>
+
+  <div class="kc-hero-content">
+    <div class="container">
+      {%- if section.settings.heading != blank -%}
+        <h1 class="kc-hero-heading">{{ section.settings.heading }}</h1>
+      {%- endif -%}
+
+      {%- if section.settings.subheading != blank -%}
+        <p class="kc-hero-subheading">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.button_label != blank -%}
+        <div class="kc-hero-buttons">
+          <a href="{{ section.settings.button_link }}" class="btn btn-primary btn-lg">
+            {{ section.settings.button_label }}
+          </a>
+          {%- if section.settings.button_label_2 != blank -%}
+            <a href="{{ section.settings.button_link_2 }}" class="btn btn-outline btn-lg">
+              {{ section.settings.button_label_2 }}
+            </a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "KC Theory Hero",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hero Background Image",
+      "info": "Recommended size: 1920x1080px. Leave blank to use default KC Theory background."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Welcome to The KC Theory"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Supporting men with ADHD through evidence-based tools and resources"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Primary Button Label",
+      "default": "Take the Quiz"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Primary Button Link",
+      "default": "/pages/quiz"
+    },
+    {
+      "type": "text",
+      "id": "button_label_2",
+      "label": "Secondary Button Label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link_2",
+      "label": "Secondary Button Link",
+      "default": "/collections/all"
+    }
+  ],
+  "presets": [
+    {
+      "name": "KC Theory Hero",
+      "settings": {
+        "heading": "Welcome to The KC Theory",
+        "subheading": "Supporting men with ADHD through evidence-based tools and resources",
+        "button_label": "Take the Quiz",
+        "button_link": "/pages/quiz",
+        "button_label_2": "Shop Now",
+        "button_link_2": "/collections/all"
+      }
+    }
+  ]
+}
+{% endschema %}
+

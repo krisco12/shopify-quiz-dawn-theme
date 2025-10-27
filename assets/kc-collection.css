@@ -1,0 +1,175 @@
+/**
+ * KC Theory Collections Section
+ * Product collections display
+ */
+
+.kc-collections-section {
+  padding: var(--spacing-3xl, 64px) 0;
+  background-color: var(--color-white, #FFFFFF);
+}
+
+.kc-collections-heading {
+  font-size: var(--font-size-3xl, 36px);
+  color: var(--color-primary-navy, #010B4A);
+  margin-bottom: var(--spacing-md, 16px);
+}
+
+.kc-collections-description {
+  font-size: var(--font-size-lg, 20px);
+  color: var(--color-slate-gray, #4A5568);
+  margin-bottom: var(--spacing-2xl, 48px);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.kc-collections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl, 32px);
+  margin-bottom: var(--spacing-2xl, 48px);
+}
+
+.kc-collection-card {
+  background-color: var(--color-white, #FFFFFF);
+  border-radius: var(--radius-lg, 12px);
+  overflow: hidden;
+  box-shadow: var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+  transition: all var(--transition-base, 250ms);
+}
+
+.kc-collection-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
+}
+
+.kc-collection-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.kc-collection-image {
+  position: relative;
+  width: 100%;
+  padding-bottom: 75%; /* 4:3 aspect ratio */
+  overflow: hidden;
+  background-color: var(--color-focus-bg, #F7FAFC);
+}
+
+.kc-collection-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-base, 250ms);
+}
+
+.kc-collection-card:hover .kc-collection-image img {
+  transform: scale(1.05);
+}
+
+.kc-collection-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kc-collection-placeholder svg {
+  width: 60%;
+  height: 60%;
+  opacity: 0.3;
+}
+
+.kc-collection-content {
+  padding: var(--spacing-lg, 24px);
+}
+
+.kc-collection-title {
+  font-size: var(--font-size-xl, 24px);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--color-primary-navy, #010B4A);
+  margin-bottom: var(--spacing-sm, 8px);
+}
+
+.kc-collection-excerpt {
+  font-size: var(--font-size-base, 16px);
+  color: var(--color-slate-gray, #4A5568);
+  line-height: var(--line-height-relaxed, 1.75);
+  margin-bottom: var(--spacing-md, 16px);
+}
+
+.kc-collection-count {
+  font-size: var(--font-size-sm, 14px);
+  color: var(--color-sage-green, #88A47C);
+  font-weight: var(--font-weight-medium, 500);
+  margin-bottom: var(--spacing-md, 16px);
+}
+
+.kc-collections-footer {
+  margin-top: var(--spacing-2xl, 48px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .kc-collections-section {
+    padding: var(--spacing-2xl, 48px) 0;
+  }
+
+  .kc-collections-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg, 24px);
+  }
+
+  .kc-collections-heading {
+    font-size: var(--font-size-2xl, 30px);
+  }
+
+  .kc-collections-description {
+    font-size: var(--font-size-md, 18px);
+  }
+}
+
+/* Focus mode adjustments */
+html.kc-focus-mode .kc-collection-card {
+  box-shadow: none;
+  border: 2px solid var(--color-slate-gray, #4A5568);
+}
+
+html.kc-focus-mode .kc-collection-card:hover {
+  transform: none;
+}
+
+html.kc-focus-mode .kc-collection-image img {
+  filter: grayscale(50%);
+}
+
+/* High contrast mode */
+html.kc-high-contrast .kc-collection-card {
+  border: 3px solid var(--color-primary-navy, #010B4A);
+}
+
+/* Print styles */
+@media print {
+  .kc-collections-section {
+    padding: var(--spacing-lg, 24px) 0;
+  }
+
+  .kc-collection-card {
+    box-shadow: none;
+    border: 1px solid #000;
+    page-break-inside: avoid;
+  }
+
+  .kc-collections-footer {
+    display: none;
+  }
+}
+
