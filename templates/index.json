@@ -39,6 +39,7 @@
       "type": "image-banner",
       "settings": {
         "image": "shopify://shop_images/image.png",
+        "image_2": "shopify://shop_images/image.png",
         "image_overlay_opacity": 0,
         "image_height": "medium",
         "image_behavior": "none",
