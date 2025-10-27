@@ -1,0 +1,356 @@
+/**
+ * KC Theory Accessibility Styles
+ * ADHD-friendly accessibility features and controls
+ */
+
+/* ========================================
+   ACCESSIBILITY MENU
+   ======================================== */
+
+.kc-accessibility-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--z-modal, 1050);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.kc-accessibility-menu.active {
+  display: flex;
+}
+
+.kc-accessibility-menu__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.kc-accessibility-menu__panel {
+  position: relative;
+  background-color: var(--color-white, #ffffff);
+  border-radius: var(--radius-lg, 12px);
+  box-shadow: var(--shadow-xl, 0 20px 25px -5px rgba(0, 0, 0, 0.1));
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  z-index: 1;
+}
+
+.kc-accessibility-menu__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-lg, 24px);
+  border-bottom: 2px solid var(--color-focus-bg, #F7FAFC);
+}
+
+.kc-accessibility-menu__header h2 {
+  margin: 0;
+  font-size: var(--font-size-xl, 24px);
+  color: var(--color-primary-navy, #010B4A);
+}
+
+.kc-accessibility-menu__close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-sm, 8px);
+  color: var(--color-slate-gray, #4A5568);
+  transition: color var(--transition-base, 250ms);
+  border-radius: var(--radius-sm, 4px);
+}
+
+.kc-accessibility-menu__close:hover {
+  color: var(--color-primary-navy, #010B4A);
+}
+
+.kc-accessibility-menu__close:focus-visible {
+  outline: 3px solid var(--color-sage-green, #88A47C);
+  outline-offset: 2px;
+}
+
+.kc-accessibility-menu__content {
+  padding: var(--spacing-lg, 24px);
+}
+
+.kc-accessibility-option {
+  margin-bottom: var(--spacing-xl, 32px);
+}
+
+.kc-accessibility-option:last-child {
+  margin-bottom: 0;
+}
+
+.kc-accessibility-option > label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md, 16px);
+  cursor: pointer;
+  font-family: var(--font-heading, 'Lexend', sans-serif);
+  font-weight: var(--font-weight-medium, 500);
+  font-size: var(--font-size-base, 16px);
+  color: var(--color-primary-navy, #010B4A);
+}
+
+.kc-accessibility-option input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  accent-color: var(--color-sage-green, #88A47C);
+}
+
+.kc-option-description {
+  margin-top: var(--spacing-sm, 8px);
+  margin-left: 40px;
+  font-size: var(--font-size-sm, 14px);
+  color: var(--color-slate-gray, #4A5568);
+}
+
+.kc-button-group {
+  display: flex;
+  gap: var(--spacing-sm, 8px);
+  flex-wrap: wrap;
+  margin-top: var(--spacing-sm, 8px);
+}
+
+.kc-btn-option {
+  flex: 1;
+  min-width: 80px;
+  padding: var(--spacing-md, 16px);
+  background-color: var(--color-white, #ffffff);
+  border: 2px solid var(--color-slate-gray, #4A5568);
+  border-radius: var(--radius-md, 8px);
+  font-family: var(--font-heading, 'Lexend', sans-serif);
+  font-weight: var(--font-weight-medium, 500);
+  font-size: var(--font-size-sm, 14px);
+  color: var(--color-primary-navy, #010B4A);
+  cursor: pointer;
+  transition: all var(--transition-base, 250ms);
+}
+
+.kc-btn-option:hover {
+  border-color: var(--color-sage-green, #88A47C);
+  background-color: rgba(136, 164, 124, 0.1);
+}
+
+.kc-btn-option.active {
+  background-color: var(--color-sage-green, #88A47C);
+  border-color: var(--color-sage-green, #88A47C);
+  color: var(--color-white, #ffffff);
+}
+
+.kc-btn-option:focus-visible {
+  outline: 3px solid var(--color-sage-green, #88A47C);
+  outline-offset: 2px;
+}
+
+.kc-accessibility-menu__footer {
+  padding: var(--spacing-lg, 24px);
+  border-top: 2px solid var(--color-focus-bg, #F7FAFC);
+  background-color: var(--color-focus-bg, #F7FAFC);
+}
+
+.kc-keyboard-shortcuts {
+  margin: 0;
+  font-size: var(--font-size-sm, 14px);
+  color: var(--color-slate-gray, #4A5568);
+  line-height: var(--line-height-relaxed, 1.75);
+}
+
+/* ========================================
+   ACCESSIBILITY TOGGLE BUTTON
+   ======================================== */
+
+.kc-accessibility-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  background-color: var(--color-sage-green, #88A47C);
+  color: var(--color-white, #ffffff);
+  border: none;
+  border-radius: var(--radius-full, 9999px);
+  box-shadow: var(--shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-fixed, 1030);
+  transition: all var(--transition-base, 250ms);
+}
+
+.kc-accessibility-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-xl, 0 20px 25px -5px rgba(0, 0, 0, 0.1));
+}
+
+.kc-accessibility-toggle:focus-visible {
+  outline: 3px solid var(--color-sage-green, #88A47C);
+  outline-offset: 4px;
+}
+
+/* ========================================
+   FONT SIZE ADJUSTMENTS
+   ======================================== */
+
+html[data-font-size="small"] {
+  font-size: 14px;
+}
+
+html[data-font-size="normal"] {
+  font-size: 16px;
+}
+
+html[data-font-size="large"] {
+  font-size: 18px;
+}
+
+html[data-font-size="xlarge"] {
+  font-size: 20px;
+}
+
+/* ========================================
+   HIGH CONTRAST MODE
+   ======================================== */
+
+html.kc-high-contrast {
+  --color-primary-navy: #000000;
+  --color-slate-gray: #333333;
+  --color-white: #FFFFFF;
+}
+
+html.kc-high-contrast body {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
+html.kc-high-contrast .btn {
+  border-width: 3px;
+}
+
+html.kc-high-contrast a {
+  text-decoration: underline;
+}
+
+html.kc-high-contrast img {
+  filter: contrast(1.2);
+}
+
+/* ========================================
+   REDUCED MOTION
+   ======================================== */
+
+html.kc-reduced-motion *,
+html.kc-reduced-motion *::before,
+html.kc-reduced-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* ========================================
+   FOCUS MODE
+   ======================================== */
+
+html.kc-focus-mode {
+  /* Simplify the interface */
+}
+
+html.kc-focus-mode .kc-hero-section {
+  background-image: none !important;
+  background-color: var(--color-focus-bg, #F7FAFC);
+}
+
+html.kc-focus-mode [class*="animation"],
+html.kc-focus-mode [class*="parallax"] {
+  animation: none !important;
+  transform: none !important;
+}
+
+html.kc-focus-mode .announcement-bar,
+html.kc-focus-mode .newsletter-section,
+html.kc-focus-mode aside {
+  display: none !important;
+}
+
+html.kc-focus-mode main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--spacing-xl, 32px);
+}
+
+/* ========================================
+   DYSLEXIA-FRIENDLY FONT
+   ======================================== */
+
+html.kc-dyslexia-font {
+  --font-heading: 'OpenDyslexic', 'Comic Sans MS', sans-serif;
+  --font-body: 'OpenDyslexic', 'Comic Sans MS', sans-serif;
+}
+
+html.kc-dyslexia-font body,
+html.kc-dyslexia-font h1,
+html.kc-dyslexia-font h2,
+html.kc-dyslexia-font h3,
+html.kc-dyslexia-font h4,
+html.kc-dyslexia-font h5,
+html.kc-dyslexia-font h6,
+html.kc-dyslexia-font p,
+html.kc-dyslexia-font a,
+html.kc-dyslexia-font button,
+html.kc-dyslexia-font input,
+html.kc-dyslexia-font textarea {
+  font-family: 'OpenDyslexic', 'Comic Sans MS', sans-serif !important;
+  letter-spacing: 0.05em;
+  word-spacing: 0.16em;
+  line-height: 1.8;
+}
+
+/* ========================================
+   RESPONSIVE ADJUSTMENTS
+   ======================================== */
+
+@media (max-width: 640px) {
+  .kc-accessibility-menu__panel {
+    width: 95%;
+    max-height: 95vh;
+  }
+  
+  .kc-accessibility-toggle {
+    bottom: 16px;
+    right: 16px;
+    width: 48px;
+    height: 48px;
+  }
+  
+  .kc-button-group {
+    flex-direction: column;
+  }
+  
+  .kc-btn-option {
+    min-width: 100%;
+  }
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+
+@media print {
+  .kc-accessibility-toggle,
+  .kc-accessibility-menu {
+    display: none !important;
+  }
+}
+

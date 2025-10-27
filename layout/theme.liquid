@@ -256,6 +256,9 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ 'kc-base.css' | asset_url | stylesheet_tag }}
+    {{ 'kc-accessibility.css' | asset_url | stylesheet_tag }}
+    {{ 'kc-quiz.css' | asset_url | stylesheet_tag }}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
     {%- if settings.cart_type == 'drawer' -%}
@@ -296,6 +299,8 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
+    <script src="{{ 'kc-accessibility.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'kc-quiz.js' | asset_url }}" defer="defer"></script>
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
