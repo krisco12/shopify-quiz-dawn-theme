@@ -1,0 +1,84 @@
+/* KC Theory Hero Section Styles */
+.kc-hero-section {
+  background: linear-gradient(135deg, #fff 0%, #eef5f2 100%);
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0;
+}
+.kc-hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+  max-width: 1280px;
+}
+.kc-hero-logo-img {
+  max-width: 200px;
+  filter: drop-shadow(0 4px 8px rgba(1,11,74,0.1));
+}
+.kc-hero-title {
+  font-size: 3.5rem;
+  font-family: 'Lexend', 'Inter', Arial, sans-serif;
+  color: #010B4A;
+}
+.kc-hero-subtitle {
+  color: #4A5568;
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+.kc-hero-buttons a {
+  min-height: 48px;
+  padding: 0.75em 2em;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.kc-primary-btn {
+  background: #010B4A;
+  color: #fff;
+}
+.kc-primary-btn:hover {
+  background: #050f3b;
+}
+.kc-secondary-btn {
+  background: #88A47C;
+  color: #010B4A;
+}
+.kc-secondary-btn:hover {
+  background: #749367;
+  color: #fff;
+}
+.kc-hero-image img {
+  max-width: 100%;
+  border-radius: 16px;
+}
+.kc-hero-placeholder {
+  width: 320px;
+  height: 240px;
+  background: #eef5f2;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #88A47C;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border: 2px dashed #88A47C;
+}
+@media (max-width: 900px) {
+  .kc-hero-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .kc-hero-section {
+    padding: 2rem 0;
+  }
+}
